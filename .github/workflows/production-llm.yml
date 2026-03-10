@@ -10,7 +10,7 @@ jobs:
     - name: Checkout theme repo
       uses: actions/checkout@main
       with:
-          repository: aspose-llm/Aspose.OMR-Products-Airspace
+          repository: aspose-omr/Aspose.OMR-Products-Airspace
           token: ${{ secrets.REPO_TOKEN }}
           fetch-depth: 0 
     - name: Setup Hugo
