@@ -43,3 +43,19 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.CEPH_PROD_ACCESS_KEY_SECRET }}
         AWS_REGION: ${{ secrets.CEPH_PROD_ENDPOINT_URL }}
         AWS_ENDPOINT_URL: ${{ secrets.CEPH_PROD_REGION }}
+
+  purge:
+    runs-on: ubuntu-latest
+    needs: deploy
+    container:
+      image: quay.io/curl/curl
+    env:
+      SITE_URL: https://products.aspose.com/llm
+    steps:
+    - name: Purge CDN
+      env:
+        BUNNYNET_ACCESSKEY: ${{ secrets.BUNNYNET_ACCESSKEY }}
+      run: |
+        curl --version
+        echo "Purging ${SITE_URL}"
+        curl -siG -H "X-Api-Key: ${BUNNYNET_ACCESSKEY}" --data-urlencode "url=${SITE_URL}" "https://api.dynabic.com/bn/purge?async=true"
