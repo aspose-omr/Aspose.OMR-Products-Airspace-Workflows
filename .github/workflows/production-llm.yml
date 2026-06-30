@@ -41,8 +41,8 @@ jobs:
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.CEPH_PROD_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.CEPH_PROD_ACCESS_KEY_SECRET }}
-        AWS_REGION: ${{ secrets.CEPH_PROD_ENDPOINT_URL }}
-        AWS_ENDPOINT_URL: ${{ secrets.CEPH_PROD_REGION }}
+        AWS_ENDPOINT_URL: ${{ secrets.CEPH_PROD_ENDPOINT_URL }}
+        AWS_REGION: ${{ secrets.CEPH_PROD_REGION }}
 
   purge:
     runs-on: ubuntu-latest
