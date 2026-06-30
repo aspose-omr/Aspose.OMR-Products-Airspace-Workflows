@@ -39,5 +39,7 @@ jobs:
     - name: Deploy LLM to S3
       run: hugo deploy --config "configs/llm.toml" --maxDeletes=-1 --target "production" --force
       env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.CEPH_PROD_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.CEPH_PROD_ACCESS_KEY_SECRET }}
+        AWS_REGION: ${{ secrets.CEPH_PROD_ENDPOINT_URL }}
+        AWS_ENDPOINT_URL: ${{ secrets.CEPH_PROD_REGION }}
