@@ -51,7 +51,7 @@ jobs:
     container:
       image: quay.io/curl/curl
     env:
-      SITE_URL: https://products.aspose.com/llm
+      SITE_URL: https://products.aspose.com/llm/
     steps:
     - name: Purge CDN
       env:
