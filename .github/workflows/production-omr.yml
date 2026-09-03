@@ -51,7 +51,7 @@ jobs:
     container:
       image: quay.io/curl/curl
     env:
-      SITE_URL: https://products.aspose.com/omr
+      SITE_URL: https://products.aspose.com/omr/
     steps:
     - name: Purge CDN
       env:
@@ -59,4 +59,4 @@ jobs:
       run: |
         curl --version
         echo "Purging ${SITE_URL}"
-        curl -siG -H "X-Api-Key: ${BUNNYNET_ACCESSKEY}" --data-urlencode "url=${SITE_URL}" "https://api.dynabic.com/bn/purge?async=true"
+        curl -fsSiG -H "X-Api-Key: ${BUNNYNET_ACCESSKEY}" --data-urlencode "url=${SITE_URL}" "https://api.dynabic.com/bn/purge?async=true"
